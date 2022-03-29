@@ -13,7 +13,7 @@ const Inicio = ({navigation}) => {
                 <TouchableOpacity 
                     style={styles.entrar}
                     //onPress={() => navigation.navigate('Login')}
-                    onPress={() => {console.log('Apertou em Entrar!!')}}
+                    onPress={() => {navigation.navigate('Login')}}
                 >
                     <Text style={styles.txtEntrar}>ENTRAR</Text>
                 </TouchableOpacity>
