@@ -4,6 +4,29 @@ import CheckBox from '@react-native-community/checkbox';
 
 
 const Cadastrar = ({navigation}) => {
+    const [ nome, setNome ] = useState(' ');
+    const [ cpf, setCpf ] = useState(null);
+    const [ celular, setCelular ] = useState(null);
+    const [ email, setEmail ] = useState(null);
+    const [ senha, setSenha ] = useState(null);
+    const [ confSenha, setConfSenha ] = useState(null);
+
+    /*fetch('localhost/lavafacilservidor/cadastrar.php', {
+        method: 'POST',
+        body: JSON.stringify({
+            nome: nome,
+            email: email,
+            celular: celular,
+            cpf: cpf,
+            senha: senha
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json));*/
+
     return (
         <KeyboardAvoidingView style={styles.body}>
             <View style={styles.container}>
@@ -15,6 +38,7 @@ const Cadastrar = ({navigation}) => {
                     placeholderTextColor={'#D3D3D3'}
                     autoCompleteType={'name'}
                     keyboardType={'default'}
+                    onChangeText={txt => setNome(txt)}
                 />
 
                 <TextInput
@@ -23,11 +47,12 @@ const Cadastrar = ({navigation}) => {
                     placeholderTextColor={'#D3D3D3'}
                     autoCompleteType={'cc-number'}
                     keyboardType={'numeric'}
+                    onChange={txt => setCpf(txt)}
                 />
 
                 <TextInput
-                    style={styles.telefone}
-                    placeholder={'Telefone'}
+                    style={styles.celular}
+                    placeholder={'Celular'}
                     placeholderTextColor={'#D3D3D3'}
                     autoCompleteType={'tel'}
                     keyboardType={'numeric'}
@@ -64,7 +89,10 @@ const Cadastrar = ({navigation}) => {
                     <Text style={styles.txtTermo}>Li e concordo com os termos e Condicões de Uso. Os Termos estarção disponiveis para consulta dentro do app.</Text>        
                 </View>     
                  
-                <TouchableOpacity style={styles.cadastrar}>
+                <TouchableOpacity
+                    style={styles.cadastrar}
+                    onPress={() => {console.warn(nome)}}
+                >
                     <Text style={styles.txtCadastrar}>Cadastrar</Text>
                 </TouchableOpacity>
             </View> 
@@ -125,7 +153,7 @@ const styles = new StyleSheet.create({
         marginBottom : 20
     },
 
-    telefone : {
+    celular : {
         width : '90%',
         height : 52,
         backgroundColor : '#FFF',
