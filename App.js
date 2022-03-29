@@ -1,10 +1,9 @@
 import React from 'react';
-import { Text } from 'react-native';
-import Inicio from './src/inicio/Inicio.js';
+import Navegacao from './src/Navegacao.js';
 
 const App = () => {
   return (
-    <Inicio/>
+    <Navegacao/>
   )
 }
 

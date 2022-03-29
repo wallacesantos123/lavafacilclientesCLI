@@ -6,14 +6,14 @@ const Inicio = ({navigation}) => {
     return (
         <KeyboardAvoidingView style={styles.body}>
             <View style={styles.image}>
-                <Image source={require('../../assets/logo.png')}/>
+                <Image source={require('../../../assets/logo.png')}/>
             </View>
 
             <View style={styles.container}>
                 <TouchableOpacity 
                     style={styles.entrar}
                     //onPress={() => navigation.navigate('Login')}
-                    onPress={() => {console.warn('Apertou em Entrar!!')}}
+                    onPress={() => {console.log('Apertou em Entrar!!')}}
                 >
                     <Text style={styles.txtEntrar}>ENTRAR</Text>
                 </TouchableOpacity>
