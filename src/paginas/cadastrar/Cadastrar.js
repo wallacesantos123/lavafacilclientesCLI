@@ -2,30 +2,35 @@ import React, { useState } from 'react';
 import { KeyboardAvoidingView, View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
-
 const Cadastrar = ({navigation}) => {
     const [ nome, setNome ] = useState(' ');
-    const [ cpf, setCpf ] = useState(null);
-    const [ celular, setCelular ] = useState(null);
-    const [ email, setEmail ] = useState(null);
-    const [ senha, setSenha ] = useState(null);
-    const [ confSenha, setConfSenha ] = useState(null);
+    const [ cpf, setCpf ] = useState(' ');
+    const [ celular, setCelular ] = useState(' ');
+    const [ email, setEmail ] = useState(' ');
+    const [ senha, setSenha ] = useState(' ');
+    const [ confSenha, setConfSenha ] = useState(' ');
 
-    /*fetch('localhost/lavafacilservidor/cadastrar.php', {
-        method: 'POST',
-        body: JSON.stringify({
-            nome: nome,
-            email: email,
-            celular: celular,
-            cpf: cpf,
-            senha: senha
-        }),
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-    .then((response) => response.json())
-    .then((json) => console.log(json));*/
+    const CadastrarPost = () => {
+        fetch('https://204a-190-124-246-235.ngrok.io/lavafacilservidor/cadastrar.php', {
+            method: 'POST',
+            body: JSON.stringify({
+                nome: nome,
+                cpf: cpf,
+                celular: celular,
+                email: email,
+                senha: senha
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+
+        /*fetch('https://204a-190-124-246-235.ngrok.io/lavafacilservidor/testejson.php')
+        .then((response) => response.json())
+        .then((json) => console.log(json));*/
+    } 
 
     return (
         <KeyboardAvoidingView style={styles.body}>
@@ -47,7 +52,7 @@ const Cadastrar = ({navigation}) => {
                     placeholderTextColor={'#D3D3D3'}
                     autoCompleteType={'cc-number'}
                     keyboardType={'numeric'}
-                    onChange={txt => setCpf(txt)}
+                    onChangeText={txt => setCpf(txt)}
                 />
 
                 <TextInput
@@ -56,6 +61,7 @@ const Cadastrar = ({navigation}) => {
                     placeholderTextColor={'#D3D3D3'}
                     autoCompleteType={'tel'}
                     keyboardType={'numeric'}
+                    onChangeText={txt => setCelular(txt)}
                 />
 
                 <TextInput
@@ -64,6 +70,7 @@ const Cadastrar = ({navigation}) => {
                     placeholderTextColor={'#D3D3D3'}
                     autoCompleteType={'email'}
                     keyboardType={'default'}
+                    onChangeText={txt => setEmail(txt)}
                 />
 
                 <TextInput
@@ -73,6 +80,7 @@ const Cadastrar = ({navigation}) => {
                     autoCompleteType={'password'}
                     keyboardType={'default'}
                     secureTextEntry={true}
+                    onChangeText={txt => setSenha(txt)}
                 />
 
                 <TextInput
@@ -82,6 +90,7 @@ const Cadastrar = ({navigation}) => {
                     autoCompleteType={'password'}
                     keyboardType={'default'}
                     secureTextEntry={true}
+                    onChangeText={txt => setConfSenha(txt)}
                 />             
 
                 <View style={styles.termo}>
@@ -91,7 +100,7 @@ const Cadastrar = ({navigation}) => {
                  
                 <TouchableOpacity
                     style={styles.cadastrar}
-                    onPress={() => {console.warn(nome)}}
+                    onPress={CadastrarPost}
                 >
                     <Text style={styles.txtCadastrar}>Cadastrar</Text>
                 </TouchableOpacity>
