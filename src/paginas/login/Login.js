@@ -1,7 +1,48 @@
-import React from 'react';
-import { View, KeyboardAvoidingView, Image, TextInput, StyleSheet, Text, Button, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, KeyboardAvoidingView, Image, TextInput, StyleSheet, Text, Button, TouchableOpacity, Alert } from 'react-native';
 
 const Login = ({navigation}) => {
+    const [ email, setEmail ] = useState(' ');
+    const [ senha, setSenha ] = useState(' ');
+    const [ status, setStatus ] = useState(' ');
+
+    const loginGet = () => {
+        fetch('https://204a-190-124-246-235.ngrok.io/lavafacilservidor/login_json.php', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email : email,
+                senha : senha,
+                tipo : 'Cliente'
+            })
+        })
+        .then((response) => response.json())
+        .then((json) => setStatus(json));
+
+        if(email == '' || senha == '') {
+            Alert.alert('E-mail e Senha', 'Digite seu E-Mail e Senha para continuar!!!');
+        }
+        else if(JSON.stringify(status) === JSON.stringify("E-mail não cadastrado!")) {
+            Alert.alert('Conta Inexistente', JSON.stringify(status));
+        }
+        else if(JSON.stringify(status) === JSON.stringify("E-mail ou Senha incorreta!")) {
+            Alert.alert('Informação Incorreta', JSON.stringify(status));
+        }
+        else if(JSON.stringify(status) === JSON.stringify("aceito")){
+            navigation.reset({
+                index: 0,
+                routes: [
+                  {
+                    name: 'Menu',
+                  },
+                ],
+              });
+        }
+    }
+
     return (
         <KeyboardAvoidingView style={styles.body}>
             <View style={styles.container}>
@@ -10,34 +51,25 @@ const Login = ({navigation}) => {
             </View>
                 <TextInput 
                     style={styles.email}
-                    onChangeText={() => {}}
                     placeholder={'Email'}
                     placeholderTextColor={'#D3D3D3'}
                     textContentType={'emailAddress'}
+                    onChangeText={txt => setEmail(txt)}
                 />
 
                 <TextInput
                     style={styles.senha}
-                    onChangeText={() => {}}
                     secureTextEntry={true}
                     placeholder={'Senha'}
                     placeholderTextColor={'#D3D3D3'}
                     keyboardType={'default'}
                     textContentType={'password'}
+                    onChangeText={txt => setSenha(txt)}
                 />
 
                 <TouchableOpacity
                     style={styles.entrar}
-                    onPress={() =>
-                        navigation.reset({
-                          index: 0,
-                          routes: [
-                            {
-                              name: 'Menu',
-                            },
-                          ],
-                        })
-                    }
+                    onPress={loginGet}
                 >
                     <Text style={styles.txtEntrar}>ENTRAR</Text>
                 </TouchableOpacity>
