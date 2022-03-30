@@ -9,9 +9,7 @@ const Menu = ({navigation, route}) => {
     const [ location, setLocation ] = useState(null);
     const [ errorMsg, setErrorMsg ] = useState(null);
     const mapView = useRef(null);
-
-    console.log(lavagem);
-
+    
     /*const animateMap = () => {
       mapView.current.animateToRegion({
           latitude: -23.4902999,

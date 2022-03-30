@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 const Cadastrar = ({navigation}) => {
@@ -25,7 +25,7 @@ const Cadastrar = ({navigation}) => {
             },
         })
         .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then((json) => Alert.alert('Cadastrado!', JSON.stringify(json)));
 
         /*fetch('https://204a-190-124-246-235.ngrok.io/lavafacilservidor/testejson.php')
         .then((response) => response.json())
