@@ -7,7 +7,7 @@ const Login = ({navigation}) => {
     const [ status, setStatus ] = useState(' ');
 
     const loginGet = () => {
-        fetch('https://204a-190-124-246-235.ngrok.io/lavafacilservidor/login_json.php', {
+        fetch('https://2f65-190-124-246-235.ngrok.io/lavafacilservidor/login_json.php', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

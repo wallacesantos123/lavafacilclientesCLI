@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import 'react-native-gesture-handler';
 import MapView, { AnimatedRegion, Marker, UrlTile } from 'react-native-maps';
-import { Alert, KeyboardAvoidingView, StyleSheet, TouchableOpacity, View, Text, Image } from 'react-native';
+import { Alert, KeyboardAvoidingView, StyleSheet, TouchableOpacity, View, Text, Image, Linking, Platform } from 'react-native';
 
 const Menu = ({navigation, route}) => {
     //Alert.alert('Menu', 'Deseja ir para o lava-rapido mais proximo?')
@@ -10,7 +10,7 @@ const Menu = ({navigation, route}) => {
     const [ errorMsg, setErrorMsg ] = useState(null);
     const mapView = useRef(null);
     
-    /*const animateMap = () => {
+    const animateMap = () => {
       mapView.current.animateToRegion({
           latitude: -23.4902999,
           longitude: -46.3538963,
@@ -80,12 +80,12 @@ const Menu = ({navigation, route}) => {
         <MapView
           ref={mapView}
           style={Styles.maps}
-          region={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.015,
-            longitudeDelta: 0.0121
-            }}
+          initialRegion = { { 
+            latitude : 37.78825 , 
+            longitude : - 122.4324 , 
+            latitudeDelta : 0.0922 , 
+            longitudeDelta : 0.0421 , 
+          } } 
           loadingEnabled
           showsUserLocation
           zoomControlEnabled
@@ -123,7 +123,7 @@ const Menu = ({navigation, route}) => {
             </Text>
           </TouchableOpacity>*/}
 
-          {/*selecionado ? animateMap() : <Text></Text>*/}
+          {selecionado ? animateMap() : <Text></Text>}
 
           {selecionado ? 
             <View
@@ -145,6 +145,7 @@ const Menu = ({navigation, route}) => {
 
               <TouchableOpacity
                 style={ Styles.irBt }
+                onPress={() => {Linking.openURL('geo:-23.4902999,-46.3538963')}}
               >
                 <Image source={require('../../../assets/ir_bt.png')} style={Styles.irBtImg} />
               </TouchableOpacity>
