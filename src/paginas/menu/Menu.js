@@ -2,6 +2,21 @@ import React, {useState, useEffect, useRef} from 'react';
 import 'react-native-gesture-handler';
 import MapView, { AnimatedRegion, Marker, UrlTile } from 'react-native-maps';
 import { Alert, KeyboardAvoidingView, StyleSheet, TouchableOpacity, View, Text, Image, Linking, Platform } from 'react-native';
+import { debug } from 'react-native-reanimated';
+
+const AlertConf = () => {
+  const arrayButton = [
+    {
+      text : 'Não', onPress : () => {console.log('Você Apertou em Não')}
+    },
+
+    {
+      text : 'Sim', onPress : () => {Linking.openURL('geo:-23.4902999,-46.3538963')}
+    }
+  ]
+
+  Alert.alert('Confirmação de Lavagem', 'A sua lavagem escolhida foi a ... no ... podemos ir para o lava-Rapido?', arrayButton);
+}
 
 const Menu = ({navigation, route}) => {
     //Alert.alert('Menu', 'Deseja ir para o lava-rapido mais proximo?')
@@ -145,7 +160,8 @@ const Menu = ({navigation, route}) => {
 
               <TouchableOpacity
                 style={ Styles.irBt }
-                onPress={() => {Linking.openURL('geo:-23.4902999,-46.3538963')}}
+                //onPress={() => {/Linking.openURL('geo:-23.4902999,-46.3538963')}}
+                onPress={() => {AlertConf()}}
               >
                 <Image source={require('../../../assets/ir_bt.png')} style={Styles.irBtImg} />
               </TouchableOpacity>
