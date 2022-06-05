@@ -189,7 +189,7 @@ const Styles = new StyleSheet.create({
     },
 
     btLavagens : {
-      width : '25.2%',
+      width : '20%',
       height : '100%',
       borderWidth : 1,
       alignItems : 'center',
@@ -197,40 +197,40 @@ const Styles = new StyleSheet.create({
       position : 'absolute',
       backgroundColor : '#FFF',
       borderRadius : 10,
-      marginLeft : '0.3%'
+      marginLeft : '0.5%'
     },
 
     btLavaRapidos : {
-      width : '23.2%',
+      width : '12%',
       height : '100%',
       borderWidth : 1,
       alignItems : 'center',
       justifyContent : 'center',
-      marginLeft : '26.1%',
+      marginLeft : '21.5%',
+      position : 'absolute',
+      backgroundColor : '#FFF',
+      borderRadius : 10,
+    },
+
+    btHistorico : {
+      width : '22%',
+      height : '100%',
+      borderWidth : 1,
+      alignItems : 'center',
+      justifyContent : 'center',
+      marginLeft : '48.3%',
       position : 'relative',
       backgroundColor : '#FFF',
       borderRadius : 10
     },
 
-    btHistorico : {
-      width : '1%',
-      height : '100%',
-      borderWidth : 1,
-      alignItems : 'center',
-      justifyContent : 'center',
-      marginLeft : '49.6%',
-      position : 'absolute',
-      backgroundColor : '#FFF',
-      borderRadius : 10
-    },
-
     btConfiguracoes : {
-      width : '23.4%',
+      width : '28%',
       height : '100%',
       borderWidth : 1,
       alignItems : 'center',
       justifyContent : 'center',
-      marginLeft : '75.5%',
+      marginLeft : '70.8%',
       position : 'absolute',
       backgroundColor : '#FFF',
       borderRadius : 10
@@ -300,10 +300,11 @@ const Styles = new StyleSheet.create({
   },
 
   irBtImg : {
-    marginTop : '-24%',
-    marginLeft : '77.5%',
     width : '23%',
-    borderRadius : 10
+    height : '146%',
+    marginTop : '-21%',
+    marginLeft : '77.5%',
+    borderRadius : 10,
   }
 })
 
