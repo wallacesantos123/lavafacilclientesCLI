@@ -27,8 +27,8 @@ const Menu = ({navigation, route}) => {
     
     const animateMap = () => {
       mapView.current.animateToRegion({
-          latitude: -23.4902999,
-          longitude: -46.3538963,
+          latitude: -23.4902,
+          longitude: -46.3533,
           latitudeDelta: 0.005,
           longitudeDelta: 0.005,
       }, 1000);
@@ -106,8 +106,11 @@ const Menu = ({navigation, route}) => {
           zoomControlEnabled
           >
               <Marker
-                coordinate={{ latitude : -23.4902999 , longitude : -46.3538963 }}
-              />
+                title={'Suave na Nave'}
+                icon={require('../../../assets/icon.png')}
+                coordinate={{ latitude : -23.4902 , longitude : -46.3533 }}
+              >
+              </Marker>
         </MapView>
 
         <View style={Styles.confirm}>
