@@ -22,6 +22,7 @@ const LavaRapidos = ({navigation, route}) => {
                         style={Styles.titulo}
                     >
                         DUCHA
+                        R$10,00
                     </Text>
                 </TouchableOpacity>
 
@@ -41,6 +42,7 @@ const LavaRapidos = ({navigation, route}) => {
                         style={Styles.titulo}
                     >
                         SIMPLES
+                        R$20,00
                     </Text>
                 </TouchableOpacity>
 
@@ -60,6 +62,7 @@ const LavaRapidos = ({navigation, route}) => {
                         style={Styles.titulo}
                     >
                         COMPLETA
+                        R$30,00
                     </Text>
                 </TouchableOpacity>
 
@@ -70,6 +73,7 @@ const LavaRapidos = ({navigation, route}) => {
                     <Image source={require('../../../assets/informacao.png')} style={Styles.imgInfo} />
                 </TouchableOpacity>
 
+                {/*
                 <TouchableOpacity
                     style={Styles.lavaRapido}
                     onPress={() => navigation.navigate('Menu', { selecionado : selecionado, lavaRapido : lavaRapido })}
@@ -88,6 +92,7 @@ const LavaRapidos = ({navigation, route}) => {
                 >
                     <Image source={require('../../../assets/informacao.png')} style={Styles.imgInfo} />
                 </TouchableOpacity>
+                */}
             </View>
         </KeyboardAvoidingView>
     )
@@ -121,19 +126,17 @@ const Styles = StyleSheet.create({
     titulo : {
         fontWeight : 'bold',
         fontSize : 26,
-        marginTop : '-14%',
-        marginLeft : '25%',
+        marginTop : '-18.5%',
+        marginLeft : '30%',
         borderRightWidth : 2,
         marginRight : '20%',
     },
 
     info : {
-        width : '14.5%',
-        height : '8%',
-        alignItems : 'center',
-        justifyContent : 'center',
-        marginLeft : '78%',
-        marginTop : '-20%'
+        width : '15.4%',
+        height : '10.2%',
+        marginLeft : '78.5%',
+        marginTop : '-22.5%'
     },
 
     imgInfo : {

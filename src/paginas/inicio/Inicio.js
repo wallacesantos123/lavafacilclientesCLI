@@ -40,7 +40,7 @@ const styles = new StyleSheet.create({
     },
 
     image : {
-        marginTop : '20%',
+        marginTop : '5%',
         alignItems : 'center',
         justifyContent : 'center',
     },

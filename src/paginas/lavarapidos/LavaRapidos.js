@@ -57,39 +57,39 @@ const Styles = StyleSheet.create({
 
     imgLogo : {
         width : '20%',
-        height : '75%',
-        marginTop : '2.5%',
-        marginLeft : '4%'
+        height : '80%',
+        marginTop : '2%',
+        marginLeft : '3%'
     },
 
     titulo : {
         fontWeight : 'bold',
         fontSize : 18,
         marginTop : '-21%',
-        marginLeft : '28%'
+        marginLeft : '25%'
     },
 
     imgAvali : {
         width : '60%',
         height : '60%',
-        marginTop : '-5%',
-        marginLeft : '22%'
+        marginTop : '-3%',
+        marginLeft : '19%'
     },
 
     endereco : {
         fontWeight : 'bold',
         fontSize : 10,
-        marginLeft : '28%'
+        marginLeft : '25%'
     },
 
     info : {
         borderLeftWidth : 2,
-        width : '15%',
-        height : '8%',
+        width : '16.4%',
+        height : '10.5%',
         alignItems : 'center',
         justifyContent : 'center',
         marginLeft : '78%',
-        marginTop : '-24.5%'
+        marginTop : '-23%'
     },
 
     imgInfo : {

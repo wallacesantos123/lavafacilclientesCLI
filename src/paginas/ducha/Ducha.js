@@ -38,8 +38,9 @@ const Ducha = ({navigation, route}) => {
 
 const Styles = new StyleSheet.create({
     body : {
-        backgroundColor : '#FFF',
-        flex : 1
+        width : '100%',
+        height : '100%',
+        backgroundColor : '#FFF'
     },
 
     image : {
@@ -68,7 +69,7 @@ const Styles = new StyleSheet.create({
         width : '80%',
         height : '15%',
         borderWidth : 2,
-        marginTop : '30%',
+        marginTop : '15%',
         alignItems : 'center',
         justifyContent : 'center'
     },

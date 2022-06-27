@@ -97,7 +97,8 @@ const styles = new StyleSheet.create({
     image : {
         alignItems : 'center',
         justifyContent : 'center',
-        marginBottom : '5%'
+        position : 'absolute',
+        marginTop : '15%'
     },
 
     container : {
@@ -119,6 +120,7 @@ const styles = new StyleSheet.create({
         height : 52,
         backgroundColor : '#FFF',
         color : '#000',
+        marginTop : '35%',
         marginBottom : 25,
         borderWidth : 2,
         borderColor : '#000',
@@ -132,7 +134,7 @@ const styles = new StyleSheet.create({
         height : 52,
         backgroundColor : '#FFF',
         color : '#000',
-        marginBottom : '15%',
+        marginBottom : '35%',
         borderWidth : 2,
         borderColor : '#000',
         borderRadius : 5,
