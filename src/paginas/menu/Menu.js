@@ -1,9 +1,10 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, Children} from 'react';
 import 'react-native-gesture-handler';
 import MapView, { AnimatedRegion, Marker, UrlTile } from 'react-native-maps';
 import { Alert, KeyboardAvoidingView, StyleSheet, TouchableOpacity, View, Text, Image, Linking, Platform } from 'react-native';
 import { requestMultiple, PERMISSIONS } from 'react-native-permissions';
 import Geolocation from 'react-native-geolocation-service';
+import MapViewDirections from 'react-native-maps-directions';
 
 const Menu = ({navigation, route}) => {
     //Alert.alert('Menu', 'Deseja ir para o lava-rapido mais proximo?')
@@ -11,6 +12,7 @@ const Menu = ({navigation, route}) => {
     const [ coords, setCoords ] = useState(null);
     const [ errorMsg, setErrorMsg ] = useState(null);
     const mapView = useRef(null);
+    const GOOGLE_MAPS_APIKEY = 'AIzaSyBayrxHEUwi2fvhi1utszGIgkdNp0ZD9Ow';
     
     // criando um useEffect que será executado uma vez quando o Hook for chamado (parâmetro passado ao fim da função é vazio).
     useEffect(() => {
@@ -68,6 +70,31 @@ const Menu = ({navigation, route}) => {
       })()
     }, []);
     
+
+    const Direcao = () => {
+      if(selecionado == true) 
+      {
+        return(
+          <MapViewDirections
+          origin={coords}
+          destination={{ latitude : -23.4902 , longitude : -46.3533 }}
+          apikey={GOOGLE_MAPS_APIKEY}
+        />
+        )
+        
+      }
+      else if(selecionado == false)
+      {
+        return(
+          <MapViewDirections
+          origin={{latitude : -23.0115, longitude : -46.3548}}
+          destination={{latitude : -23.0116, longitude : -46.3549}}
+          apikey={GOOGLE_MAPS_APIKEY}
+        />
+        )
+      }
+    }
+
     const animateMap = () => {
       mapView.current.animateToRegion({
           latitude: -23.4902,
@@ -165,6 +192,7 @@ const Menu = ({navigation, route}) => {
                 coordinate={{ latitude : -23.4902 , longitude : -46.3533 }}
               >
               </Marker>
+              <Direcao/>
         </MapView>
 
         <View style={Styles.confirm}>
