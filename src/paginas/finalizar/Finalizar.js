@@ -15,7 +15,7 @@ const Finalizar = () => {
                 <Text style={Style.opcoes}>Motor: Não</Text>
                 <Text style={Style.opcoes}>Valor: R$10,00</Text>
                 <Text style={Style.opcoes}>Forma de Pagamento: Dinheiro</Text>
-
+                    
                 <TouchableOpacity 
                     style={Style.confirm}
                     onPress={() => {console.log('Confirmou!!!')}}
@@ -31,24 +31,25 @@ const Style = new StyleSheet.create({
     titulo: {
         textAlign: 'center',
         fontWeight: 'bold',
-        fontSize : 20
+        fontSize : 28,
+        marginBottom : '10%'
     },
 
     opcoes: {
         textAlign: 'center',
         fontWeight: 'bold',
-        fontSize: 14
+        fontSize: 24
     },
     
     confirm: {
-        width: '80%',
+        width: '90%',
         height: '35%',
         borderWidth: 2,
         borderColor: '#000',
         alignSelf: 'center',
         alignItems: 'center',
-        justifyContent: 'center'
-        
+        justifyContent: 'center',
+        marginTop : '5%'
     },
 
     txtConfirm: {

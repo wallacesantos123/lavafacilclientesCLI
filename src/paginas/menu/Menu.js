@@ -248,7 +248,7 @@ const Menu = ({navigation, route}) => {
                 //onPress={() => {/Linking.openURL('geo:-23.4902999,-46.3538963')}}
                 onPress={() => {AlertConf()}}
               >
-                <Image source={require('../../../assets/ir_bt.png')} style={Styles.irBtImg} />
+                <Image style={Styles.irBtImg} source={require('../../../assets/ir_bt.png')} />
               </TouchableOpacity>
             </View>
           : 
@@ -381,12 +381,18 @@ const Styles = new StyleSheet.create({
       marginLeft : '29%'
   },
 
-  irBtImg : {
-    width : '23%',
-    height : '146%',
-    marginTop : '-21%',
-    marginLeft : '77.5%',
+  irBt : {
+    width : '25%',
+    height : '102%',
     borderRadius : 10,
+    marginTop : '-24%',
+    marginLeft : '75.5%',
+  },
+
+  irBtImg : {
+    width  : '100%',
+    height : '100%',
+    borderRadius : 10
   }
 })
 

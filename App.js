@@ -8,8 +8,8 @@ enableLatestRenderer();
 
 const App = () => {
   return (
-    //<Navegacao/>
-    <Finalizar/>
+    <Navegacao/>
+    //<Finalizar/>
   )
 }
 
