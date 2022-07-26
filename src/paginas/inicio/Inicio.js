@@ -1,5 +1,4 @@
 import * as React from 'react';
-import 'react-native-gesture-handler';
 import { KeyboardAvoidingView, View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 
 const Inicio = ({navigation}) => {

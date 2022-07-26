@@ -12,6 +12,7 @@ import Simples from './paginas/simples/Simples';
 import Completa from './paginas/completa/Completa';
 import Higienizacao from './paginas/higienizacao/Higienizacao';
 import LavaRapidos from './paginas/lavarapidos/LavaRapidos';
+import Finalizar from "./paginas/finalizar/Finalizar";
 
 const Navegacao = () => {
     const Stack = createNativeStackNavigator();
@@ -29,6 +30,7 @@ const Navegacao = () => {
                 <Stack.Screen name='Completa' component={Completa} />
                 <Stack.Screen name='Higienizacao' component={Higienizacao} />
                 <Stack.Screen name='LavaRapidos' component={LavaRapidos} />
+                <Stack.Screen name='Finalizar' component={Finalizar} />
             </Stack.Navigator>
         </NavigationContainer>
     )

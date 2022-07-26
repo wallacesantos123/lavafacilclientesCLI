@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef, Children} from 'react';
-import 'react-native-gesture-handler';
 import MapView, { AnimatedRegion, Marker, UrlTile } from 'react-native-maps';
 import { Alert, KeyboardAvoidingView, StyleSheet, TouchableOpacity, View, Text, Image, Linking, Platform } from 'react-native';
 import { requestMultiple, PERMISSIONS } from 'react-native-permissions';
@@ -246,7 +245,7 @@ const Menu = ({navigation, route}) => {
               <TouchableOpacity
                 style={ Styles.irBt }
                 //onPress={() => {/Linking.openURL('geo:-23.4902999,-46.3538963')}}
-                onPress={() => {AlertConf()}}
+                onPress={() => {navigation.navigate('Finalizar')}}
               >
                 <Image style={Styles.irBtImg} source={require('../../../assets/ir_bt.png')} />
               </TouchableOpacity>

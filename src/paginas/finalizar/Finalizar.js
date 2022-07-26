@@ -1,8 +1,7 @@
 import React from "react";
-import { KeyboardAvoidingView, Text, View, StyleSheet } from 'react-native';
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { KeyboardAvoidingView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Finalizar = () => {
+const Finalizar = ({navigation}) => {
     return(
         <KeyboardAvoidingView>
             <View>
@@ -16,7 +15,7 @@ const Finalizar = () => {
                 <Text style={Style.opcoes}>Valor: R$10,00</Text>
                 <Text style={Style.opcoes}>Forma de Pagamento: Dinheiro</Text>
                     
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={Style.confirm}
                     onPress={() => {console.log('Confirmou!!!')}}
                 >
@@ -43,7 +42,7 @@ const Style = new StyleSheet.create({
     
     confirm: {
         width: '90%',
-        height: '35%',
+        height: '15%',
         borderWidth: 2,
         borderColor: '#000',
         alignSelf: 'center',
