@@ -11,7 +11,7 @@ const LavaRapidos = ({navigation, route}) => {
             >
                 <TouchableOpacity
                     style={Styles.lavaRapido}
-                    onPress={() => navigation.navigate('Menu', { selecionado: true ,lavaRapido: 'SUAVE NA NAVE' })}
+                    onPress={() => navigation.navigate('Menu', { selecionado: true ,lavaRapido: 'SUAVE NA NAVE', latitude : -23.4902 , longitude : -46.3533 })}
                 >
                     <Image source={require('../../../assets/logo.png')} style={Styles.imgLogo} />
                     <Text

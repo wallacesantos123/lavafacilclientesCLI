@@ -1,7 +1,24 @@
-import React from "react";
+import * as React from 'react';
 import { KeyboardAvoidingView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import getDirections from 'react-native-google-maps-directions';
 
-const Finalizar = ({navigation}) => {
+const Finalizar = ({navigation, route}) => {
+    const { selecionado, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, origin, latitude, longitude} = route.params;
+
+    handleGetGoogleMapDirections = () => {
+        const data = {
+        source: origin,
+        destination: {latitude: latitude, longitude: longitude},
+        params: [
+        {
+            key: "travelmode",
+            value: "driving"
+        }
+        ]
+    };
+        getDirections(data)
+    };
+
     return(
         <KeyboardAvoidingView>
             <View>
@@ -17,7 +34,7 @@ const Finalizar = ({navigation}) => {
                     
                 <TouchableOpacity
                     style={Style.confirm}
-                    onPress={() => {console.log('Confirmou!!!')}}
+                    onPress={() => {handleGetGoogleMapDirections()}}
                 >
                     <Text style={Style.txtConfirm}>Confirmar e ir Para o Lava-Rapido</Text>
                 </TouchableOpacity>
