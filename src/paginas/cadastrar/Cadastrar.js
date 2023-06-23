@@ -11,7 +11,7 @@ const Cadastrar = ({navigation}) => {
     const [ confSenha, setConfSenha ] = useState(' ');
 
     const CadastrarPost = () => {
-        fetch('https://2f65-190-124-246-235.ngrok.io/lavafacilservidor/cadastrar_json.php', {
+        fetch('https://c168-190-124-246-46.ngrok-free.app/lavafacilservidor/cadastrar_json.php', {
             method: 'POST',
             body: JSON.stringify({
                 nome: nome,

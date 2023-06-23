@@ -387,7 +387,7 @@ const Styles = new StyleSheet.create({
     width : '25%',
     height : '102%',
     borderRadius : 10,
-    marginTop : '-24%',
+    marginTop : '-21%',
     marginLeft : '75.5%',
   },
 

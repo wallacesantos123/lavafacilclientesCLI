@@ -112,7 +112,6 @@ const styles = new StyleSheet.create({
         fontSize : 20,
         fontWeight : 'bold',
         marginTop : '20%',
-        marginBottom : '25%'
     },
 
     email : {
@@ -120,8 +119,8 @@ const styles = new StyleSheet.create({
         height : 52,
         backgroundColor : '#FFF',
         color : '#000',
-        marginTop : '80%',
-        marginBottom : 25,
+        marginTop : '75%',
+        marginBottom : '5%',
         borderWidth : 2,
         borderColor : '#000',
         borderRadius : 5,
@@ -134,7 +133,7 @@ const styles = new StyleSheet.create({
         height : 52,
         backgroundColor : '#FFF',
         color : '#000',
-        marginBottom : '15%',
+        marginBottom : '10%',
         borderWidth : 2,
         borderColor : '#000',
         borderRadius : 5,
