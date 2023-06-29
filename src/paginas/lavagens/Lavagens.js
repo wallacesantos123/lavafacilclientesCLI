@@ -15,7 +15,7 @@ const LavaRapidos = ({navigation, route}) => {
             >
                 <TouchableOpacity
                     style={Styles.lavaRapido}
-                    onPress={() => navigation.navigate('Menu', { selecionado : selecionado, lavaRapido : lavaRapido, lavagem : 'Ducha' })}
+                    onPress={() => navigation.navigate('Menu', { selecionado : selecionado, lavaRapido : lavaRapido, lavagem : 'Ducha', aspiracao : 'Não', pretinho : 'Sim', produto : 'Não', motor : 'Não', valor : '10' })}
                 >
                     <Image source={require('../../../assets/logo.png')} style={Styles.imgLogo} />
                     <Text

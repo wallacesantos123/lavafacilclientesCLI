@@ -6,9 +6,10 @@ const Finalizar = ({navigation, route}) => {
     const { selecionado, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, valor, pagamento, origin, latitude, longitude} = route.params;
 
     const IniciarCorrida = () => {
-        fetch('https://c168-190-124-246-46.ngrok-free.app/lavafacilservidor/iniciarCorrida_json.php', {
+        fetch('https://8732-190-124-246-2.ngrok-free.app/lavafacilservidor/iniciarCorrida_json.php', {
                 method: 'POST',
                 body: JSON.stringify({
+                    lavaRapidoID : '2',
                     clienteID : '1',
                     lavaRapido : lavaRapido,
                     lavagem : lavagem,
@@ -22,10 +23,7 @@ const Finalizar = ({navigation, route}) => {
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
-            })
-            .then((response) => response.json())
-            .then((json) => Alert.alert('Cadastrado!', JSON.stringify(json)))
-            .then((json) => console.log(json));
+            });
     } 
 
     const handleGetGoogleMapDirections = () => {
@@ -46,14 +44,14 @@ const Finalizar = ({navigation, route}) => {
         <KeyboardAvoidingView>
             <View>
                 <Text style={Style.titulo}>Confirmação de Lavagem</Text>
-                <Text style={Style.opcoes}>Lava-Rapido: Suave na Nave</Text>
-                <Text style={Style.opcoes}>Lavagem: Ducha</Text>
-                <Text style={Style.opcoes}>Aspiracão: Não</Text>
-                <Text style={Style.opcoes}>Pretinho: Não</Text>
-                <Text style={Style.opcoes}>Produto: Não</Text>
-                <Text style={Style.opcoes}>Motor: Não</Text>
-                <Text style={Style.opcoes}>Valor: R$10,00</Text>
-                <Text style={Style.opcoes}>Forma de Pagamento: Dinheiro</Text>
+                <Text style={Style.opcoes}>Lava-Rapido: { lavaRapido }</Text>
+                <Text style={Style.opcoes}>Lavagem: { lavagem }</Text>
+                <Text style={Style.opcoes}>Aspiracão: { aspiracao }</Text>
+                <Text style={Style.opcoes}>Pretinho: { pretinho }</Text>
+                <Text style={Style.opcoes}>Produto: { produto }</Text>
+                <Text style={Style.opcoes}>Motor: { motor }</Text>
+                <Text style={Style.opcoes}>Valor:R${ valor },00</Text>
+                <Text style={Style.opcoes}>Forma de Pagamento: { pagamento }</Text>
                     
                 <TouchableOpacity
                     style={Style.confirm}
@@ -71,6 +69,7 @@ const Style = new StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize : 28,
+        marginTop : '10%',
         marginBottom : '10%'
     },
 
@@ -88,7 +87,7 @@ const Style = new StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop : '5%'
+        marginTop : '15%'
     },
 
     txtConfirm: {

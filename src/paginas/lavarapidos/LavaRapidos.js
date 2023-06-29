@@ -2,6 +2,8 @@ import * as React from 'react';
 import { KeyboardAvoidingView, StyleSheet, View, TouchableOpacity, Image, Text } from 'react-native';
 
 const LavaRapidos = ({navigation, route}) => {
+    const { lavagem, aspiracao, pretinho, produto, motor, valor } = route.params;
+
     return (
         <KeyboardAvoidingView
             style={Styles.body}
@@ -11,7 +13,7 @@ const LavaRapidos = ({navigation, route}) => {
             >
                 <TouchableOpacity
                     style={Styles.lavaRapido}
-                    onPress={() => navigation.navigate('Menu', { selecionado: true ,lavaRapido: 'SUAVE NA NAVE', latitude : -23.4902 , longitude : -46.3533 })}
+                    onPress={() => navigation.navigate('Menu', { selecionado: true ,lavaRapido: 'SUAVE NA NAVE', latitude : -23.4902 , longitude : -46.3533, lavagem : lavagem, aspiracao : aspiracao, pretinho : pretinho, produto : produto, motor : motor, valor : valor })}
                 >
                     <Image source={require('../../../assets/logo.png')} style={Styles.imgLogo} />
                     <Text

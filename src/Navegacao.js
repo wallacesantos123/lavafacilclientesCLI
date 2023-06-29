@@ -20,7 +20,7 @@ const Navegacao = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Inicio">
-                <Stack.Screen name='Menu' component={Menu} options={{swipeEnabled : false}} initialParams={{ selecionado : false , lavaRapido : 'Nenhum Lava-Rapido Selecionado.', lavagem : 'Nenhuma', aspiracao : 'Não', pretinho : 'Não', produto : 'Não', motor : 'Não' }} />
+                <Stack.Screen name='Menu' component={Menu} options={{swipeEnabled : false}} initialParams={{ selecionado : false , lavaRapidoID : null, clientID : null, lavaRapido : 'Nenhum Lava-Rapido Selecionado.', lavagem : 'Nenhuma', aspiracao : 'Não', pretinho : 'Não', produto : 'Não', motor : 'Não', valor : '0', pagamento : 'Dinheiro' }} />
                 <Stack.Screen name='Inicio' component={Inicio} />
                 <Stack.Screen name='Login' component={Login} />  
                 <Stack.Screen name='Cadastrar' component={Cadastrar} />

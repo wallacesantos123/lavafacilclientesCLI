@@ -26,7 +26,7 @@ const Ducha = ({navigation, route}) => {
 
                 <TouchableOpacity 
                     style={Styles.voltar}
-                    onPress={() => navigation.navigate('Lavagens', { selecionado : selecionado, lavaRapido : lavaRapido, lavagem : Ducha })}
+                    onPress={() => navigation.navigate('Lavagens', { selecionado : selecionado, lavaRapido : lavaRapido, lavagem : 'Ducha' })}
                 >
                     <Text style={Styles.txtVoltar} >VOLTAR PARA LAVAGENS</Text>
                 </TouchableOpacity>

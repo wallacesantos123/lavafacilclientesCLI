@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import { Alert, KeyboardAvoidingView, StyleSheet, TouchableOpacity, View, Text, Image, Linking, Platform } from 'react-native';
 import { requestMultiple, PERMISSIONS } from 'react-native-permissions';
@@ -7,7 +7,7 @@ import MapViewDirections from 'react-native-maps-directions';
 
 const Menu = ({navigation, route}) => {
     //Alert.alert('Menu', 'Deseja ir para o lava-rapido mais proximo?')
-    const { selecionado, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, origin, latitude, longitude} = route.params;
+    const { selecionado, lavaRapidoID, clienteID, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, valor, pagamento, origin, latitude, longitude} = route.params;
     const [ coords, setCoords ] = useState(null);
     const [ errorMsg, setErrorMsg ] = useState(null);
     const mapView = useRef(null);
@@ -75,11 +75,11 @@ const Menu = ({navigation, route}) => {
       {
         return(
           <MapViewDirections
-          origin={coords}
-          destination={{ latitude : -23.4902 , longitude : -46.3533 }}
-          apikey={GOOGLE_MAPS_APIKEY}
-          strokeWidth={8}
-          strokeColor='green'
+            origin={coords}
+            destination={{ latitude : -23.4902 , longitude : -46.3533 }}
+            apikey={GOOGLE_MAPS_APIKEY}
+            strokeWidth={8}
+            strokeColor='green'
         />
         )
         
@@ -88,9 +88,9 @@ const Menu = ({navigation, route}) => {
       {
         return(
           <MapViewDirections
-          origin={{latitude : -23.0115, longitude : -46.3548}}
-          destination={{latitude : -23.0116, longitude : -46.3549}}
-          apikey={GOOGLE_MAPS_APIKEY}  
+            origin={{latitude : -23.0115, longitude : -46.3548}}
+            destination={{latitude : -23.0116, longitude : -46.3549}}
+            apikey={GOOGLE_MAPS_APIKEY}  
         />
         )
       }
@@ -161,7 +161,7 @@ const Menu = ({navigation, route}) => {
 
           <TouchableOpacity 
             style={Styles.btLavaRapidos}
-            onPress={() => navigation.navigate('LavaRapidos')}
+            onPress={() => navigation.navigate('LavaRapidos', {lavagem : lavagem, aspiracao : aspiracao, pretinho : pretinho, produto : produto, motor : motor, valor : valor})}
           >
             <Text style={Styles.txtBotoes} >Lava-Rapidos</Text>
           </TouchableOpacity>
@@ -248,7 +248,7 @@ const Menu = ({navigation, route}) => {
                 style={ Styles.irBt }
                 //onPress={() => {console.log(latitude + ' ' + longitude)}}
                 //onPress={() => {/Linking.openURL('geo:-23.4902999,-46.3538963')}}
-                onPress={() => navigation.navigate('Finalizar', { selecionado: selecionado, lavaRapido: lavaRapido, lavagem: lavagem, aspiracao: aspiracao, pretinho: pretinho, produto: produto, motor: motor, origin: coords, latitude: latitude, longitude: longitude })}
+                onPress={() => navigation.navigate('Finalizar', { selecionado: selecionado, lavaRapidoID : lavaRapidoID, clienteID : clienteID, lavaRapido: lavaRapido, lavagem: lavagem, aspiracao: aspiracao, pretinho: pretinho, produto: produto, motor: motor, valor : valor, pagamento : pagamento, origin: coords, latitude: latitude, longitude: longitude })}
               >
                 <Image style={Styles.irBtImg} source={require('../../../assets/ir_bt.png')} />
               </TouchableOpacity>
