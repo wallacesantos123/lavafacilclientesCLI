@@ -1,13 +1,63 @@
 import * as React from 'react';
 import { KeyboardAvoidingView, View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+//import auth from '@react-native-firebase/auth';
 
 const Inicio = ({navigation}) => {
+    /*// Set an initializing state whilst Firebase connects
+    const [initializing, setInitializing] = useState(true);
+    const [user, setUser] = useState();
+
+    // Handle user state changes
+    function onAuthStateChanged(user) {
+        setUser(user);
+        if (initializing) setInitializing(false);
+    }
+
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+        return subscriber; // unsubscribe on unmount
+    }, []);
+
+    if (initializing) return null;
+
+    if (!user) {
+        return (
+            <KeyboardAvoidingView style={styles.body}>
+                <View style={styles.image}>
+                    <Image source={require('../../../assets/logo.png')}/>
+                </View>
+
+                <View style={styles.container}>
+                    <TouchableOpacity 
+                        style={styles.entrar}
+                        //onPress={() => navigation.navigate('Login')}
+                        onPress={() => {navigation.navigate('Login')}}
+                    >
+                        <Text style={styles.txtEntrar}>ENTRAR</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity 
+                        style={styles.cadastrar}
+                        onPress={() => navigation.navigate('Cadastrar')}
+                    >
+                        <Text style={styles.txtCadastrar}>CADASTRAR</Text>
+                    </TouchableOpacity>
+                </View>
+            </KeyboardAvoidingView>
+        );
+    }
+
+    return (
+        <View>
+            <Text>Welcome {user.email}</Text>
+        </View>
+    );*/
     return (
         <KeyboardAvoidingView style={styles.body}>
             <View style={styles.image}>
                 <Image source={require('../../../assets/logo.png')}/>
             </View>
-
+    
             <View style={styles.container}>
                 <TouchableOpacity 
                     style={styles.entrar}
@@ -16,7 +66,7 @@ const Inicio = ({navigation}) => {
                 >
                     <Text style={styles.txtEntrar}>ENTRAR</Text>
                 </TouchableOpacity>
-
+    
                 <TouchableOpacity 
                     style={styles.cadastrar}
                     onPress={() => navigation.navigate('Cadastrar')}
