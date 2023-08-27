@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { View, KeyboardAvoidingView, Image, TextInput, StyleSheet, Text, Button, TouchableOpacity, Alert } from 'react-native';
 
 const Login = ({navigation}) => {
-    const [ email, setEmail ] = useState(' ');
-    const [ senha, setSenha ] = useState(' ');
-    const [ status, setStatus ] = useState(' ');
+    const [ email, setEmail ] = useState('');
+    const [ senha, setSenha ] = useState('');
+    const [ status, setStatus ] = useState('');
 
-    const loginGet = () => {
-        fetch('http://lavafacil.ddns.net/lavafacilservidor/login_json.php', {
+    async function loginPost() {
+        if(email != '') 
+        {
+            const response = await fetch('http://lavafacil.ddns.net/lavafacilservidor/login_json.php', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -18,12 +20,14 @@ const Login = ({navigation}) => {
                 senha : senha,
                 tipo : 'Cliente'
             })
-        })
-        .then((response) => response.json())
-        .then((json) => setStatus(json));
-
-        if(email == '' || senha == '') {
-            Alert.alert('E-mail e Senha', 'Digite seu E-Mail e Senha para continuar!!!');
+            })
+            .then((response) => response.json())
+            .then((json) => setStatus(json));
+        }
+        
+        if(status == '') {
+            Alert.alert('Email e Senha', 'Digite o Email e a Senha para Entrar!!!');
+            setStatus(JSON.stringify(''));
         }
         else if(JSON.stringify(status) === JSON.stringify("E-mail não cadastrado!")) {
             Alert.alert('Conta Inexistente', JSON.stringify(status));
@@ -32,7 +36,7 @@ const Login = ({navigation}) => {
             Alert.alert('Informação Incorreta', JSON.stringify(status));
         }
         else if(JSON.stringify(status) === JSON.stringify("aceito")){
-            navigation.reset({
+            return await navigation.reset({
                 index: 0,
                 routes: [
                   {
@@ -69,7 +73,7 @@ const Login = ({navigation}) => {
 
                 <TouchableOpacity
                     style={styles.entrar}
-                    onPress={() => navigation.navigate('Menu')}
+                    onPress={() => loginPost()}
                 >
                     <Text style={styles.txtEntrar}>ENTRAR</Text>
                 </TouchableOpacity>
