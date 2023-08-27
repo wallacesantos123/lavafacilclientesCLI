@@ -6,8 +6,8 @@ const Login = ({navigation}) => {
     const [ senha, setSenha ] = useState(' ');
     const [ status, setStatus ] = useState(' ');
 
-    /*const loginGet = () => {
-        fetch('https://2f65-190-124-246-235.ngrok.io/lavafacilservidor/login_json.php', {
+    const loginGet = () => {
+        fetch('http://lavafacil.ddns.net/lavafacilservidor/login_json.php', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -41,7 +41,7 @@ const Login = ({navigation}) => {
                 ],
               });
         }
-    }*/
+    }
 
     return (
         <KeyboardAvoidingView style={styles.body}>

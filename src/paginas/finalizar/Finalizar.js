@@ -6,7 +6,7 @@ const Finalizar = ({navigation, route}) => {
     const { selecionado, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, valor, pagamento, origin, latitude, longitude} = route.params;
 
     const IniciarCorrida = () => {
-        fetch('https://8732-190-124-246-2.ngrok-free.app/lavafacilservidor/iniciarCorrida_json.php', {
+        fetch('http://lavafacil.ddns.net/lavafacilservidor/iniciarCorrida_json.php', {
                 method: 'POST',
                 body: JSON.stringify({
                     lavaRapidoID : '2',
