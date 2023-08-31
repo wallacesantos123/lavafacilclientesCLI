@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { KeyboardAvoidingView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, Text, View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
+import { debug } from 'react-native-reanimated';
 
 const Finalizar = ({navigation, route}) => {
     const { selecionado, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, valor, pagamento, origin, latitude, longitude} = route.params;
@@ -23,7 +24,8 @@ const Finalizar = ({navigation, route}) => {
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
-            });
+            }).then((response) => response.json())
+            .then((json) => Alert.alert('TEste', JSON.stringify(json)));
     } 
 
     const handleGetGoogleMapDirections = () => {
