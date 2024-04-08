@@ -38,21 +38,12 @@ const Cadastrar = ({navigation}) => {
                 <Text style={styles.titulo}>BEM VINDO AO LAVA FACIL!</Text>
 
                 <TextInput
-                    style={styles.nome}
-                    placeholder={'Nome'}
+                    style={styles.email}
+                    placeholder={'Email'}
                     placeholderTextColor={'#D3D3D3'}
-                    autoCompleteType={'name'}
+                    autoCompleteType={'email'}
                     keyboardType={'default'}
-                    onChangeText={txt => setNome(txt)}
-                />
-
-                <TextInput
-                    style={styles.cpf}
-                    placeholder={'CPF'}
-                    placeholderTextColor={'#D3D3D3'}
-                    autoCompleteType={'cc-number'}
-                    keyboardType={'numeric'}
-                    onChangeText={txt => setCpf(txt)}
+                    onChangeText={txt => setEmail(txt)}
                 />
 
                 <TextInput
@@ -62,15 +53,6 @@ const Cadastrar = ({navigation}) => {
                     autoCompleteType={'tel'}
                     keyboardType={'numeric'}
                     onChangeText={txt => setCelular(txt)}
-                />
-
-                <TextInput
-                    style={styles.email}
-                    placeholder={'Email'}
-                    placeholderTextColor={'#D3D3D3'}
-                    autoCompleteType={'email'}
-                    keyboardType={'default'}
-                    onChangeText={txt => setEmail(txt)}
                 />
 
                 <TextInput
@@ -123,7 +105,8 @@ const styles = new StyleSheet.create({
 
     titulo : {
         color : '#000',
-        marginBottom : '2.5%',
+        marginTop : '10%',
+        marginBottom : '10%',
         fontSize : 18,
         fontWeight : 'bold'
     },
@@ -219,7 +202,8 @@ const styles = new StyleSheet.create({
 
     termo : {
        backgroundColor : '#FFF',
-       marginBottom : '2.5%'
+       marginTop : '4%',
+       marginBottom : '4%'
     },
 
     CheckBox : {
