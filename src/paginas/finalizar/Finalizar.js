@@ -22,7 +22,8 @@ const Finalizar = ({navigation, route}) => {
                     pagamento : pagamento
                 }),
                 headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
                 },
             }).then((response) => response.json())
             .then((json) => Alert.alert('TEste', JSON.stringify(json)));
@@ -57,7 +58,7 @@ const Finalizar = ({navigation, route}) => {
                     
                 <TouchableOpacity
                     style={Style.confirm}
-                    onPress={() => {IniciarCorrida()}}//, handleGetGoogleMapDirections()}}
+                    onPress={() => {IniciarCorrida()}}
                 >
                     <Text style={Style.txtConfirm}>Confirmar e ir Para o Lava-Rapido</Text>
                 </TouchableOpacity>
