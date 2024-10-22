@@ -1,47 +1,50 @@
-import * as React from 'react';
-import { KeyboardAvoidingView, Text, View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import getDirections from 'react-native-google-maps-directions';
-import { debug } from 'react-native-reanimated';
 
 const Finalizar = ({navigation, route}) => {
     const { selecionado, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, valor, pagamento, origin, latitude, longitude} = route.params;
+    const[status, setStatus] = useState('');
 
-    const IniciarCorrida = () => {
-        fetch('http://lavafacil.ddns.net/lavafacilservidor/iniciarCorrida_json.php', {
-                method: 'POST',
-                body: JSON.stringify({
-                    lavaRapidoID : '2',
-                    clienteID : '1',
-                    lavaRapido : lavaRapido,
-                    lavagem : lavagem,
-                    aspiracao : aspiracao,
-                    pretinho : pretinho,
-                    produto : produto,
-                    motor : motor,
-                    valor : valor,
-                    pagamento : pagamento
-                }),
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json'
-                },
-            }).then((response) => response.json())
-            .then((json) => Alert.alert('TEste', JSON.stringify(json)));
-    } 
+    async function IniciarCorrida() {
+        const response = fetch('http://lavafacil.ddns.net/lavafacilservidor/iniciar_corrida_json.php', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                lavaRapidoID : '2',
+                clienteID : '1',
+                lavaRapido : lavaRapido,
+                lavagem : lavagem,
+                aspiracao : aspiracao,
+                pretinho : pretinho,
+                produto : produto,
+                motor : motor,
+                valor : valor,
+                pagamento : pagamento
+            })
+            })
+            .then((response) => response.json())
+            .then((json) => setStatus(json));
 
-    const handleGetGoogleMapDirections = () => {
-        const data = {
-        source: origin,
-        destination: {latitude: latitude, longitude: longitude},
-        params: [
-        {
-            key: "travelmode",
-            value: "driving"
+            console.log(status);
         }
-        ]
-    };
-        getDirections(data)
-    };
+
+        const handleGetGoogleMapDirections = () => {
+            const data = {
+            source: origin,
+            destination: {latitude: latitude, longitude: longitude},
+            params: [
+                {
+                    key: "travelmode",
+                    value: "driving"
+                }
+            ]
+        };
+            getDirections(data)
+        };
 
     return(
         <KeyboardAvoidingView>

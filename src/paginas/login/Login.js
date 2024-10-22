@@ -7,9 +7,9 @@ const Login = ({navigation}) => {
     const [ status, setStatus ] = useState('');
 
     async function loginPost() {
-        if(email != '') 
+        if(email != '' & senha != '') 
         {
-            const response = await fetch('http://lavafacil.ddns.net/lavafacilservidor/login_json.php', {
+            const response = fetch('http://lavafacil.ddns.net/lavafacilservidor/login_json.php', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -25,7 +25,7 @@ const Login = ({navigation}) => {
             .then((json) => setStatus(json));
         }
         
-        if(status == '') {
+        if(email == '' || senha == '') {
             Alert.alert('Email e Senha', 'Digite o Email e a Senha para Entrar!!!');
             setStatus(JSON.stringify(''));
         }

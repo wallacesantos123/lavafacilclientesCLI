@@ -69,7 +69,7 @@ const Inicio = ({navigation}) => {
     
                 <TouchableOpacity 
                     style={styles.cadastrar}
-                    onPress={() => navigation.navigate('Cadastrar')}
+                    onPress={() => navigation.navigate('Sql')}
                 >
                     <Text style={styles.txtCadastrar}>CADASTRAR</Text>
                 </TouchableOpacity>
