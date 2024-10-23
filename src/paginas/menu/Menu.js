@@ -193,6 +193,7 @@ const Menu = ({navigation, route}) => {
                 coordinate={{ latitude : -23.4902 , longitude : -46.3533 }}
               >
               </Marker>
+
               <Direcao/>
         </MapView>
 
@@ -396,6 +397,7 @@ const Styles = new StyleSheet.create({
     height : '100%',
     borderRadius : 10
   }
+
 })
 
 export default Menu;

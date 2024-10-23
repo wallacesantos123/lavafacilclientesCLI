@@ -61,7 +61,6 @@ const Inicio = ({navigation}) => {
             <View style={styles.container}>
                 <TouchableOpacity 
                     style={styles.entrar}
-                    //onPress={() => navigation.navigate('Login')}
                     onPress={() => {navigation.navigate('Login')}}
                 >
                     <Text style={styles.txtEntrar}>ENTRAR</Text>
@@ -115,7 +114,8 @@ const styles = new StyleSheet.create({
 
     txtEntrar : {
         fontSize : 20,
-        fontWeight : 'bold'
+        fontWeight : 'bold',
+        color : '#000'
     },
 
     cadastrar : {
