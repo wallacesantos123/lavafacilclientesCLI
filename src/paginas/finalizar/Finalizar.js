@@ -4,7 +4,7 @@ import getDirections from 'react-native-google-maps-directions';
 
 const Finalizar = ({navigation, route}) => {
     const { selecionado, lavaRapido, lavagem, aspiracao, pretinho, produto, motor, valor, pagamento, origin, latitude, longitude} = route.params;
-    const[status, setStatus] = useState('');
+    const[status, setStatus] = useState(' ');
 
     async function IniciarCorrida() {
         const response = fetch('http://lavafacil.ddns.net/lavafacilservidor/iniciar_corrida_json.php', {
@@ -14,7 +14,7 @@ const Finalizar = ({navigation, route}) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                lavaRapidoID : '2',
+                lavaRapidoID : '5',
                 clienteID : '1',
                 lavaRapido : lavaRapido,
                 lavagem : lavagem,
@@ -61,7 +61,7 @@ const Finalizar = ({navigation, route}) => {
                     
                 <TouchableOpacity
                     style={Style.confirm}
-                    onPress={() => {IniciarCorrida()}}
+                    onPress={() => IniciarCorrida()}
                 >
                     <Text style={Style.txtConfirm}>Confirmar e ir Para o Lava-Rapido</Text>
                 </TouchableOpacity>
